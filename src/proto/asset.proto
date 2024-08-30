@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package asset;
+
+message Asset {
+  optional string id = 1;
+
+  // The base64 encoded representation of the asset.
+  optional string base64_encoded_value = 2;
+
+  // Mime type of the asset.
+  optional string mime_type = 3;
+
+  // URL to fetch the asset from. Output only.
+  optional string public_url = 4;
+}
+
+message CreateAssetRequest {
+    optional Asset asset = 1;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package task;
+
+import "google/protobuf/timestamp.proto";
+
+message Task {
+  optional string id = 1;                            // Unique identifier for the task
+  optional string title = 2;                         // Title of the task
+  optional string description = 3;                   // Description of the task
+  optional string status = 4;                        // Status of the task (e.g., Pending, Completed, In Progress)
+  optional bool private = 5;
+  optional string deadline = 6;
+  optional associated_university = 7;
+  optional string priority = 8;
+}
+
+

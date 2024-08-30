@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mentee;
+
+message Mentee {
+  optional string id = 1;                       // Unique identifier for the mentee
+  optional string name = 2;                     // Full name of the mentee
+  optional string email = 3;                    // Email address
+  optional string phone_number = 4;             // Contact phone number
+  optional string undergrad_university = 5;          
+  optional string undergrad_degree = 6;           
+  optional repeated string interests = 7;       // List of mentee's interests
+  optional string undergrad_major = 8;
+  optional string undergrad_minor = 9;
+  optional int32 wort_experience_years = 10;
+  optional int32 number_of_publications = 11;
+  optional string current_location = 12;
+  optional repeated target_program = 13;
+}

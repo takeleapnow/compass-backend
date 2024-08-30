@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mentee;
+
+import "google/protobuf/field_mask.proto";
+
+message Application {
+  optional string university =1;
+  optional string program_name = 2;
+  optional int32 fee = 3;
+  optional string deadline = 4;
+  optional string application_portal_link = 5;
+  optional string status = 6;
+  optional string decision_date = 7;
+  optional repeated task = 8;
+  optional repeated application_material = 9;
+  optional Mentee mentee = 10;
+}
+
