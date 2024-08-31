@@ -3,10 +3,6 @@ const { UserDetail } = require('otpless-node-js-auth-sdk');
 
 require('dotenv').config();
 
-// const phoneNumber = "919481776681";
-// const channel = "WHATSAPP";
-// const email = "kavanamanchale@gmail.com";
-// const redirectURI = "mentara.xyz"
 
 const magicLinkGeneration = async (req, res) => {
     try {

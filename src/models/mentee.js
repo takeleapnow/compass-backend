@@ -24,13 +24,15 @@ class Mentee {
             .insert([this])
             .single();
         
+        console.log(error)
+        
         if (error) throw error;
         return data;
     }
 
     // Method to update an existing mentee in the database
     async update(id) {
-        const db = getDB(); // Get the Supabase client instance
+        // const db = getDB(); // Get the Supabase client instance
         const { data, error } = await db
             .from('mentees')
             .update(this)
@@ -43,7 +45,7 @@ class Mentee {
 
     // Method to fetch a mentee by ID
     static async getById(id) {
-        const db = getDB(); // Get the Supabase client instance
+        // const db = getDB(); // Get the Supabase client instance
         const { data, error } = await db
             .from('mentees')
             .select('*')

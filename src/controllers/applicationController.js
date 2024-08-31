@@ -14,7 +14,7 @@ async function createApplication(req, res) {
         const application = new Application(applicationData);
 
         // Save the application to the database
-        const result = await application.save(db);
+        const result = await application.save();
 
         // Respond with the created application
         res.status(201).json(result);
@@ -26,22 +26,51 @@ async function createApplication(req, res) {
 }
 
 // Update an existing application
+// async function updateApplication(req, res) {
+//     try {
+//         const { id } = req.params;
+//         const applicationData = new Application(req.body);
+//         const updatedApplication = await applicationData.update(id);
+//         res.status(200).json(updatedApplication);
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// }
+
+
+// Update an existing application
 async function updateApplication(req, res) {
     try {
-        const { id } = req.params;
-        const applicationData = new Application(req.body);
-        const updatedApplication = await applicationData.update(db, id);
+        const { applicationId, updateData } = req.params;
+        
+        // Fetch the existing application data from the database
+        const existingApplication = await Application.getById(applicationId);
+        if (!existingApplication) {
+            return res.status(404).json({ error: 'Application not found' });
+        }
+
+        // Merge the existing data with the new data from req.body
+        const updatedData = {
+            ...existingApplication,
+            ...updateData,  // This will override only the provided fields
+        };
+
+        // Create a new Application instance with the merged data
+        const applicationData = new Application(updatedData);
+        const updatedApplication = await applicationData.update(id);
+        
         res.status(200).json(updatedApplication);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
 
+
 // Get an application by ID
 async function getApplicationById(req, res) {
     try {
         const { id } = req.params;
-        const application = await Application.getById(db, id);
+        const application = await Application.getById(id);
         res.status(200).json(application);
     } catch (error) {
         res.status(404).json({ error: 'Application not found' });
@@ -51,7 +80,7 @@ async function getApplicationById(req, res) {
 // Get all applications
 async function getAllApplications(req, res) {
     try {
-        const applications = await Application.getAll(db);
+        const applications = await Application.getAll();
         res.status(200).json(applications);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -61,8 +90,8 @@ async function getAllApplications(req, res) {
 // Delete an application by ID
 async function deleteApplication(req, res) {
     try {
-        const { id } = req.params;
-        await Application.deleteById(db, id);
+        const { id } = req.body;
+        await Application.deleteById(id);
         res.status(204).send();
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -71,8 +100,8 @@ async function deleteApplication(req, res) {
 
 async function getTasksForApplication(req, res) {
     try {
-        const { applicationId } = req.params;
-        const tasks = await Task.getByApplicationId(db, applicationId);
+        const { applicationId } = req.body;
+        const tasks = await Task.getByApplicationId(applicationId);
         res.status(200).json(tasks);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -81,8 +110,8 @@ async function getTasksForApplication(req, res) {
 
 async function getApplicationsByMentee(req, res) {
     try {
-        const { menteeId } = req.params;
-        const applications = await Application.getByMenteeId(db, menteeId);
+        const { menteeId } = req.body;
+        const applications = await Application.getByMenteeId(menteeId);
 
         res.status(200).json(applications);
     } catch (error) {
