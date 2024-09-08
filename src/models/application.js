@@ -111,3 +111,71 @@ class Application {
 }
 
 module.exports = Application;
+
+
+// {
+//     "university": "Example University",
+//     "program_name": "Master of Science in Computer Science",
+//     "fee": 2000,
+//     "deadline": "2024-12-15",
+//     "application_portal_link": "http://exampleuniversity.com/apply",
+//     "status": "Pending",
+//     "decision_date": "2025-01-20",
+//     "mentee_id": 12345,
+//     "application_material": {
+//       "essay": {
+//         "essay_name": "Personal Statement",
+//         "status": "Completed",
+//         "word_length": 1200,
+//         "is_starred": true,
+//         "version": {
+//           "type": "text",
+//           "text": "This is the complete essay text for the personal statement."
+//         }
+//       },
+//       "sop": {
+//         "content": "This is the SOP text content.",
+//         "is_pdf": false
+//       },
+//       "lor": {
+//         "url": "https://example.com/lor.pdf",
+//         "is_pdf": true
+//       },
+//       "resume": {
+//         "url": "https://example.com/resume.pdf",
+//         "is_pdf": true
+//       },
+//       "other_pdfs": [
+//         {
+//           "name": "Additional Document 1",
+//           "url": "https://example.com/otherdoc1.pdf"
+//         },
+//         {
+//           "name": "Additional Document 2",
+//           "url": "https://example.com/otherdoc2.pdf"
+//         }
+//       ]
+//     },
+//     "tasks": [
+//       {
+//         "title": "Submit Application",
+//         "description": "Complete and submit the application on the portal.",
+//         "status": "Pending",
+//         "private": false,
+//         "deadline": "2024-12-10",
+//         "priority": "High",
+//         "mentee_id": 12345
+//       },
+//       {
+//         "title": "Prepare SOP",
+//         "description": "Write and finalize the SOP before submission.",
+//         "status": "In Progress",
+//         "private": true,
+//         "deadline": "2024-12-05",
+//         "priority": "Medium",
+//         "mentee_id": 12345
+//       }
+//     ],
+//     "prerequisite": "Completion of a Bachelor's degree in Computer Science"
+//   }
+  
