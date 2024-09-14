@@ -4,17 +4,23 @@
   "description": "AMS-backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.19.0",
     "@supabase/supabase-js": "^2.45.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jslint": "^0.12.1",
     "otpless-node-js-auth-sdk": "^1.0.8",
     "pbjs": "^0.0.14",
     "protobufjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4"
   }
 }

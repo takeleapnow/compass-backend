@@ -13,6 +13,7 @@ const authRoutes = require('../routes/auth')
 const menteeRoutes = require('../routes/mentee')
 const taskRoutes = require('../routes/task')
 const appRoutes = require('../routes/application')
+const editorRoutes = require('../routes/editor')
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -22,5 +23,6 @@ app.use('/login',authRoutes);
 app.use('/mentee',menteeRoutes);
 app.use('/task',taskRoutes);
 app.use('/application',appRoutes);
+app.use('/editor', editorRoutes);
 
 app.listen(3001, () => console.log("Server ready on port 3001."));
