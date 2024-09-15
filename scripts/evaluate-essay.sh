@@ -1,0 +1,9 @@
+curl \
+  -X POST \
+  -H "content-type: application/json" \
+  localhost:3001/editor/essay/evaluate \
+  --data @- << EOF
+{
+   "text": "## Introduction\n\nI am currently working as a software engineer at Google, and I am eager to take the next step in my career journey. My short-term goal is to transition into a product role, which aligns perfectly with my long-term aspiration of leading a successful marketing team for a tech startup. The flexibility of the Evening program allows me to continue my current work while pursuing my MBA, making Chicago Booth the ideal institution for me. The university's strong alumni network and its focus on leadership development are invaluable assets for achieving my goals.\n\n## Short-Term Goals and How the MBA Helps\n\nTo achieve my short-term goal of transitioning into a product role, I plan to leverage the specific courses offered by the Evening program, such as \"Introduction to User Experience\" and \"Product Engineer 101.\" These courses will provide me with the necessary technical and analytical skills to excel in a product-oriented environment. The faculty's expertise, especially in interactive and simulation-based group projects, will prepare me for future challenges. Additionally, the program's resources, including career services and networking events, will help me secure a job sooner.\n\n## Conclusion\n\nIn conclusion, I am driven by my passion to transition into a product role and ultimately lead a successful marketing team. The Evening MBA program at Chicago Booth, with its exceptional curriculum, faculty, and resources, will provide me with the necessary tools and knowledge to achieve my ambitions. I am confident that this transformative experience will propel me towards my goals. I am eager to contribute to the vibrant Booth community and learn from its esteemed faculty and diverse student body"
+}
+EOF
