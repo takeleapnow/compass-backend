@@ -1,18 +1,16 @@
 const db = require('../db'); // Supabase client
 const Mentee = require('../models/mentee');
 
-// Create a new mentee
 async function createMentee(req, res) {
     try {
-        console.log(req.body)
+        console.log(req.body); // Log the request body to verify the incoming data
         const menteeData = new Mentee(req.body);
-        const mentee = await menteeData.save();
-        res.status(201).json(mentee);
+        const savedData = await menteeData.save();
+        res.status(201).json(savedData);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
-
 // // Update an existing mentee
 // async function updateMentee(req, res) {
 //     try {

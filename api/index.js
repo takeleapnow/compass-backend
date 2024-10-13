@@ -14,6 +14,7 @@ const menteeRoutes = require('../routes/mentee')
 const taskRoutes = require('../routes/task')
 const appRoutes = require('../routes/application')
 const editorRoutes = require('../routes/editor')
+const appMaterialRoutes = require('../routes/appMaterial')
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -24,6 +25,8 @@ app.use('/mentee',menteeRoutes);
 app.use('/task',taskRoutes);
 app.use('/application',appRoutes);
 app.use('/editor', editorRoutes);
+app.use('/appMaterial',appMaterialRoutes);
+
 
 
 

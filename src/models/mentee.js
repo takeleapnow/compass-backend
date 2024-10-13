@@ -18,16 +18,24 @@ class Mentee {
 
     // Method to save a new mentee in the database
     async save() {
-        // const db = getDB(); // Get the Supabase client instance
         const { data, error } = await db
             .from('mentees')
-            .insert([this])
-            .single();
-        
-        console.log(error)
-        
-        if (error) throw error;
-        return data;
+            .insert([{
+                name: this.name,
+                email: this.email,
+                phone_number: this.phone_number,
+                undergrad_university: this.undergrad_university,
+                undergrad_degree: this.undergrad_degree,
+                interests: this.interests,
+                undergrad_major: this.undergrad_major,
+                undergrad_minor: this.undergrad_minor,
+                work_experience_years: this.work_experience_years,
+                number_of_publications: this.number_of_publications,
+                current_location: this.current_location
+            }])
+            .select(); // Make sure to include `select()` to return the inserted data
+        if (error) throw new Error(error.message);
+        return data[0]; // Return the first element from the result array (the inserted mentee)
     }
 
     // Method to update an existing mentee in the database
